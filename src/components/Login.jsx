@@ -1,9 +1,11 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
+import { useAuth } from '../context/AuthContext';
 
-import { AuthContext } from '../context/AuthContext';
+// import { AuthContext } from '../context/AuthContext';
 
 const Login = () => {
-  const { login } = useContext(AuthContext);
+  // const { login } = useContext(AuthContext);
+  const auth = useAuth();
 
   const [formData, setFormData] = useState({
     email: '',
@@ -20,7 +22,7 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    login();
+    auth.loginAction(formData);
   };
 
   return (

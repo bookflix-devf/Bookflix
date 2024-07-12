@@ -9,7 +9,7 @@ import ErrorPage from './components/ErrorPage';
 import NavBar from './components/NavBar';
 import Profile from './components/Profile';
 
-import { AuthProvider } from './context/AuthContext';
+import AuthProvider from './context/AuthContext';
 import PrivateRouter from './router/PrivateRouter';
 
 const App = () => {
@@ -19,7 +19,8 @@ const App = () => {
         <AuthProvider>
           <NavBar />
           <Routes>
-            <Route path='/' exact element={<BooksCatalogue />} />
+            s
+            <Route path='/' element={<BooksCatalogue />} />
             <Route path='/authors' element={<AuthorsCatalogue />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />

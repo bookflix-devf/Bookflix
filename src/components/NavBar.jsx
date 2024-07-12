@@ -1,11 +1,14 @@
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';
-import { AuthContext } from '../context/AuthContext';
+// import { useContext } from 'react';
+// import { AuthContext } from '../context/AuthContext';
+
+import { useAuth } from '../context/AuthContext';
 
 const NavBar = () => {
-  const { isAuthenticated, user, logout } = useContext(AuthContext);
+  const auth = useAuth();
+  // const { isAuthenticated, user, logout } = useContext(AuthContext);
   const handleLogout = () => {
-    logout();
+    auth.logOut();
   };
 
   return (
@@ -43,15 +46,12 @@ const NavBar = () => {
 
         <div className='navbar-end'>
           <div className='navbar-item'>
-            {isAuthenticated ? (
-              <div>
-                {user.firstName} {user.lastName}
-                <a
-                  className='button is-danger is-rounded'
-                  onClick={handleLogout}
-                >
+            {auth.user ? (
+              <div className='buttons'>
+                <span className='navbar-item'>{`${auth.user.firstName} ${auth.user.lastName}`}</span>
+                <button className='button is-warning' onClick={handleLogout}>
                   <strong>Logout</strong>
-                </a>
+                </button>
               </div>
             ) : (
               <div className='buttons'>
