@@ -8,6 +8,8 @@ import Register from './components/Register';
 import ErrorPage from './components/ErrorPage';
 import NavBar from './components/NavBar';
 import Profile from './components/Profile';
+import Book from './components/Book';
+import Author from './components/Author';
 
 import AuthProvider from './context/AuthContext';
 import PrivateRouter from './router/PrivateRouter';
@@ -19,9 +21,10 @@ const App = () => {
         <AuthProvider>
           <NavBar />
           <Routes>
-            s
             <Route path='/' element={<BooksCatalogue />} />
+            <Route path='/books/:bookId' element={<Book />} />
             <Route path='/authors' element={<AuthorsCatalogue />} />
+            <Route path='/authors/:authorId' element={<Author />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
             <Route element={<PrivateRouter />}>

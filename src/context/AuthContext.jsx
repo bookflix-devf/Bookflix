@@ -39,7 +39,6 @@ const AuthProvider = ({ children }) => {
           },
         });
         setUser(userRes.data.user);
-        console.log('holaaa');
         navigate('/profile');
         return;
       }

@@ -1,12 +1,9 @@
 import { Link } from 'react-router-dom';
-// import { useContext } from 'react';
-// import { AuthContext } from '../context/AuthContext';
 
 import { useAuth } from '../context/AuthContext';
 
 const NavBar = () => {
   const auth = useAuth();
-  // const { isAuthenticated, user, logout } = useContext(AuthContext);
   const handleLogout = () => {
     auth.logOut();
   };
@@ -48,7 +45,9 @@ const NavBar = () => {
           <div className='navbar-item'>
             {auth.user ? (
               <div className='buttons'>
-                <span className='navbar-item'>{`${auth.user.firstName} ${auth.user.lastName}`}</span>
+                <Link to='/profile'>
+                  <span className='navbar-item'>{`${auth.user.firstName} ${auth.user.lastName}`}</span>
+                </Link>
                 <button className='button is-warning' onClick={handleLogout}>
                   <strong>Logout</strong>
                 </button>
