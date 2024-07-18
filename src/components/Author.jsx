@@ -40,6 +40,15 @@ const Author = () => {
                   </p>
                   <p className='subtitle is-6'>@{author.nickname}</p>
                 </div>
+
+                <div className='media-right'>
+                  <Link
+                    to={`/authors/${authorId}/community`}
+                    className='button is-link'
+                  >
+                    Ir a comunidad
+                  </Link>
+                </div>
               </div>
 
               <div className='content'>

@@ -10,6 +10,7 @@ import NavBar from './components/NavBar';
 import Profile from './components/Profile';
 import Book from './components/Book';
 import Author from './components/Author';
+import Community from './components/Community';
 
 import AuthProvider from './context/AuthContext';
 import PrivateRouter from './router/PrivateRouter';
@@ -28,6 +29,10 @@ const App = () => {
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
             <Route element={<PrivateRouter />}>
+              <Route
+                path='/authors/:authorId/community'
+                element={<Community />}
+              />
               <Route path='/profile' element={<Profile />} />
             </Route>
             <Route path='*' element={<ErrorPage />} />
